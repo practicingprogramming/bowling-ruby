@@ -1,10 +1,15 @@
 module Bowling
   class Game
+    def initialize
+      @rolls = []
+    end
+
     def roll(pins)
+      @rolls << pins
     end
 
     def score
-      0
+      @rolls.inject(0) { |sum, roll| sum + roll }
     end
   end
 end
