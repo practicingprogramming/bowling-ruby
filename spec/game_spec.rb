@@ -56,7 +56,7 @@ describe Bowling::Game do
     end
 
     it 'calculates score' do
-      expect(game.score).to eq(38) # 18 + 10 + 5 + 5
+      expect(game.score).to eq(33) # 18 + 15
     end
   end
 
@@ -92,7 +92,17 @@ describe Bowling::Game do
     end
 
     it 'calculates score' do
-      expect(game.score).to eq(48) # 18 + 20
+      expect(game.score).to eq(38) # 18 + 20
+    end
+  end
+
+  describe 'all strikes' do
+    before do
+      roll_many(game, 12, 10)
+    end
+
+    it 'calculates score' do
+      expect(game.score).to eq(300)
     end
   end
 
