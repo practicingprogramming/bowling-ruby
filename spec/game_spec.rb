@@ -60,6 +60,17 @@ describe Bowling::Game do
     end
   end
 
+  describe 'one strike' do
+    before do
+      game.roll(10)
+      roll_many(game, 18, 1)
+    end
+
+    it 'calculates score' do
+      expect(game.score).to eq(30) # 10 + 18 + 2
+    end
+  end
+
   def roll_many(game, times, pins)
     (0...times).each do
       game.roll(pins)

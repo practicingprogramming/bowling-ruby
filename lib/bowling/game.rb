@@ -25,6 +25,15 @@ module Bowling
           end
           next
         end
+        if frame_roll_index == 0 && @frames[frame_index] == 10
+          @frames[frame_index] += @rolls[roll_index + 1]
+          @frames[frame_index] += @rolls[roll_index + 2]
+          if frame_index < FRAME_NUMBER - 1
+            frame_index += 1
+            frame_roll_index = 0
+          end
+          next
+        end
         if frame_roll_index == 1 && frame_index < FRAME_NUMBER - 1
           frame_index += 1
           frame_roll_index = 0
