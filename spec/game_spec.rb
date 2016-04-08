@@ -83,6 +83,19 @@ describe Bowling::Game do
     end
   end
 
+  describe 'last frame is strike' do
+    before do
+      roll_many(game, 18, 1)
+      game.roll(10)
+      game.roll(4)
+      game.roll(6)
+    end
+
+    it 'calculates score' do
+      expect(game.score).to eq(48) # 18 + 20
+    end
+  end
+
   def roll_many(game, times, pins)
     (0...times).each do
       game.roll(pins)
