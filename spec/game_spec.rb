@@ -3,9 +3,7 @@ describe Bowling::Game do
 
   describe 'all zeroes' do
     before do
-      (0...20).each do
-        game.roll(0)
-      end
+      roll_many(game, 20, 0)
     end
 
     it 'scores 0' do
@@ -15,13 +13,17 @@ describe Bowling::Game do
 
   describe 'all ones' do
     before do
-      (0...20).each do
-        game.roll(1)
-      end
+      roll_many(game, 20, 1)
     end
 
     it 'scores 1' do
       expect(game.score).to eq(20)
+    end
+  end
+
+  def roll_many(game, times, pins)
+    (0...times).each do
+      game.roll(pins)
     end
   end
 end
