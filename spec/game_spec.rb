@@ -71,6 +71,18 @@ describe Bowling::Game do
     end
   end
 
+  describe 'two strikes' do
+    before do
+      game.roll(10)
+      game.roll(10)
+      roll_many(game, 16, 1)
+    end
+
+    it 'calculates score' do
+      expect(game.score).to eq(49) # 21 + 12 + 16
+    end
+  end
+
   def roll_many(game, times, pins)
     (0...times).each do
       game.roll(pins)
