@@ -9,7 +9,7 @@ module Bowling
     end
 
     def score
-      @rolls.inject(0) { |sum, roll| sum + roll }
+      @rolls.inject(0, :+)
     end
   end
 end
